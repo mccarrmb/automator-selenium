@@ -14,3 +14,5 @@ gem "rake"
 gem "test-unit"
 gem "json"
 gem "page_navigation"
+
+gem "geckodriver-helper", "~> 0.21.0"

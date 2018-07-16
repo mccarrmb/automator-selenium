@@ -1,0 +1,66 @@
+GIT
+  remote: https://github.com/watir/watir
+  revision: 66d85db61b69d2d801d708f0ab338231bc68f9bd
+  specs:
+    watir (6.11.0)
+      selenium-webdriver (~> 3.4, >= 3.4.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
+    coderay (1.1.2)
+    concurrent-ruby (1.0.5)
+    data_magic (1.2)
+      faker (>= 1.1.2)
+      yml_reader (>= 0.6)
+    faker (1.9.1)
+      i18n (>= 0.7)
+    ffi (1.9.25)
+    geckodriver-helper (0.21.0)
+      archive-zip (~> 0.7)
+    i18n (1.0.1)
+      concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
+    json (2.1.0)
+    method_source (0.9.0)
+    minitest (5.11.3)
+    page-object (2.2.4)
+      page_navigation (>= 0.10)
+      selenium-webdriver (~> 3.0)
+      watir (~> 6.8)
+    page_navigation (0.10)
+      data_magic (>= 0.22)
+    power_assert (1.1.3)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    rake (12.3.1)
+    rubyzip (1.2.1)
+    selenium-webdriver (3.13.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2)
+    test-unit (3.2.8)
+      power_assert
+    yml_reader (0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  geckodriver-helper (~> 0.21.0)
+  json
+  minitest
+  page-object
+  page_navigation
+  pry
+  rake
+  selenium-webdriver
+  test-unit
+  watir!
+
+BUNDLED WITH
+   1.16.2
