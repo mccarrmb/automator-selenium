@@ -12,7 +12,10 @@ class GoogleTest < Minitest::Test
   Selenium::WebDriver.logger.output = File.join(File.dirname(__FILE__), "log", "selenium.log")
 
   def setup
+    opts = Selenium::WebDriver::Firefox::Options.new()
+    opts << '--headless'
     @browser = Selenium::WebDriver.for :firefox
+    @browser
   end
 
   def teardown

@@ -3,7 +3,7 @@ os:
   - linux
 env:
   global:
-    - DISPLAY=:1
+    - DISPLAY=:0
 sudo: true
 language: ruby
 cache: bundler
@@ -18,7 +18,7 @@ before_script:
   - gem install bundler
   - bundler install
 script: 
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run --server-args="$DISPLAY -screen 1 1024x768x24" bundle exec rake ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run --server-args="-screen 0 1024x768x24" bundle exec rake ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then bundle exec rake; fi
 matrix:
   allow_failures:
