@@ -18,7 +18,7 @@ before_script:
   - gem install bundler
   - bundler install
 script: 
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run --server-args="-screen 0 1024x768x24" bundle exec rake ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then bundle exec rake ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then bundle exec rake; fi
 matrix:
   allow_failures:
