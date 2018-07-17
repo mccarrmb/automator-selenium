@@ -10,10 +10,12 @@ rvm:
 before_script: 
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB && rvm get head; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install firefox; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then homebrew cask install firefox; fi
   - gem install bundler
 script: 
-  - xvfb-run --server-args="-screen 0 1024x768x24" bundle install && bundle exec rake
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run --server-args="-screen 0 1024x768x24" firefox && bundle install && bundle exec rake; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then bundle install && bundle exec rake; fi
 matrix:
   allow_failures:
     - rvm: ruby-head
