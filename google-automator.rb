@@ -13,7 +13,7 @@ class GoogleTest < Minitest::Test
 
   def setup
     opts = Selenium::WebDriver::Firefox::Options.new()
-    opts << '--headless'
+    opts.headless!
     @browser = Selenium::WebDriver.for :firefox
     @browser
   end
