@@ -14,7 +14,7 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then homebrew cask install firefox; fi
   - gem install bundler
 script: 
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run --server-args="-screen 0 1024x768x24" firefox &; bundle install && bundle exec rake; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run --server-args="-screen 0 1024x768x24" firefox & bundle install && bundle exec rake; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then bundle install && bundle exec rake; fi
 matrix:
   allow_failures:
