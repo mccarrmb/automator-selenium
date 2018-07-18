@@ -22,7 +22,7 @@ before_script:
 script: 
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then xvfb-run bundle exec rake ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then bundle exec rake; fi
-  - less log/selenium.log
+  - cat log/selenium.log
 matrix:
   allow_failures:
     - os: osx
