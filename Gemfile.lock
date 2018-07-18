@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/watir/watir
-  revision: 66d85db61b69d2d801d708f0ab338231bc68f9bd
+  revision: 23e9b1ae712f9518f7899db15f9883581b3313d4
   specs:
     watir (6.11.0)
       selenium-webdriver (~> 3.4, >= 3.4.1)
@@ -8,8 +8,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    archive-zip (0.11.0)
-      io-like (~> 0.3.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
@@ -20,11 +18,8 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.9.25)
-    geckodriver-helper (0.21.0)
-      archive-zip (~> 0.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.0)
     json (2.1.0)
     method_source (0.9.0)
     minitest (5.11.3)
@@ -51,7 +46,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  geckodriver-helper (~> 0.21.0)
   json
   minitest
   page-object
