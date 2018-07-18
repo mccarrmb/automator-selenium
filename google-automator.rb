@@ -13,10 +13,10 @@ class GoogleTest < Minitest::Test
   Selenium::WebDriver.logger.output = File.join(File.dirname(__FILE__), "log", "selenium.log")
   
   def setup
-    Selenium::WebDriver::Firefox.driver_path(File.join(\
+    Selenium::WebDriver::Firefox.driver_path = (File.join(\
       File.dirname(__FILE__), "bin", "firefox", (OS.is_macos?) ? \
-      "geckodriver-v0.20.1-macos" : "geckodriver-v0.20.1-linux64", "geckodriver") \
-    )
+      "geckodriver-v0.20.1-macos" : "geckodriver-v0.20.1-linux64", \
+      "geckodriver"))
     opts = Selenium::WebDriver::Firefox::Options.new()
     opts.headless!
     @browser = Selenium::WebDriver.for :firefox
