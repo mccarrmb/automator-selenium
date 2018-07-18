@@ -4,13 +4,13 @@ source 'https://rubygems.org'
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem 'selenium-webdriver'
-gem 'page-object'
-gem 'pry', group: :development
-gem 'watir', github: 'watir/watir'
-gem 'minitest'
-gem 'rake'
-gem 'test-unit'
 gem 'json'
+gem 'minitest'
+gem 'page-object'
 gem 'page_navigation'
+gem 'pry', group: :development
+gem 'rake'
+gem 'selenium-webdriver'
+gem 'test-unit'
+gem 'watir', github: 'watir/watir'
 

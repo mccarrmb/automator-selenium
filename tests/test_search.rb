@@ -5,7 +5,7 @@ require_relative '../pages/search_results_page.rb'
 class SearchTest < GoogleTest
   def setup
     super
-    @browser.navigate.to("https://www.google.com")
+    @browser.navigate.to('https://www.google.com')
   end
 
   def teardown
@@ -14,8 +14,7 @@ class SearchTest < GoogleTest
 
   def test_blank_submission
     search = SearchPage.new(@browser)
-    search.google_search("")
-    assert(true, "Black is white.")
+    search.google_search('')
+    assert(true, 'Black is white.')
   end
-
 end
