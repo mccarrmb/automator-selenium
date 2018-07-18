@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Sources
+*.rb     text
+*.rake   text
+*.md text
