@@ -24,7 +24,7 @@ class GoogleTest < Minitest::Test
   end
 
   def teardown
-    @browser.quit
+    @browser != nil ? @browser.quit : false
   end
 
 end
