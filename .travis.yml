@@ -14,7 +14,7 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install firefox; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod +x bin/firefox/geckodriver-v0.20.1-linux64/geckodriver; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then curl -sSL https://rvm.io/mpapis.asc | gpg --import - ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB && rvm get head; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gpg --import rvm.gpg && rvm get head; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install firefox; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod +x bin/firefox/geckodriver-v0.20.1-macos/geckodriver; fi
