@@ -1,6 +1,6 @@
 require 'selenium-webdriver'
 require 'page-object'
 
-class SearchResultsPage 
+class SearchResultsPage
   include PageObject
 end

@@ -3,7 +3,7 @@ require 'page-object'
 
 class SearchPage
   include PageObject
-  
+
   text_field(:search_field, name: 'q')
   button(:search, value: 'Google Search')
   button(:lucky, value: 'I\'m Feeling Lucky')
