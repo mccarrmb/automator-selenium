@@ -27,6 +27,6 @@ class SearchTest < GoogleTest
   def test_search_non_blank_term
     search = SearchPage.new(@browser)
     search_result = search.google_search('sample search')
-    assert(!search_result.is_a?(SearchResultsPage), 'Browser not displaying results page on non-blank term.')
+    assert(search_result.is_a?(SearchResultsPage), 'Browser not displaying results page on non-blank term.')
   end
 end
