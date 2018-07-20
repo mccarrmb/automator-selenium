@@ -11,6 +11,10 @@ class SearchPage
   def google_search(terms)
     search_field = terms
     search
-    SearchResultsPage.new(@browser)
+    if (terms.empty?)
+      SearchPage.new(@browser)
+    else
+      SearchResultsPage.new(@browser)
+    end
   end
 end
