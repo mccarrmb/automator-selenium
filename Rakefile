@@ -1,4 +1,4 @@
-task default: ["search_test"] 
+task default: ['search_test']
 
 desc 'Start a console session with Selenium loaded'
 task :console do
@@ -12,7 +12,7 @@ task :console do
   IRB.start
 end
 
-desc "Executes internet searches using the Google.com GUI"
+desc 'Executes internet searches using the Google.com GUI'
 task :search_test do
-  ruby "tests/test_search.rb"
+  ruby 'tests/test_search.rb'
 end
