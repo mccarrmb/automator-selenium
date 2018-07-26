@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/watir/watir
-  revision: 23e9b1ae712f9518f7899db15f9883581b3313d4
+  revision: c7b7b0bd411108afe5395b4cf6b4e90c73d843a8
   specs:
     watir (6.11.0)
       selenium-webdriver (~> 3.4, >= 3.4.1)
@@ -35,7 +35,7 @@ GEM
       method_source (~> 0.9.0)
     rake (12.3.1)
     rubyzip (1.2.1)
-    selenium-webdriver (3.13.0)
+    selenium-webdriver (3.13.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     test-unit (3.2.8)
