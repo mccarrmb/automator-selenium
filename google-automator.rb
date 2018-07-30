@@ -9,18 +9,10 @@ require_relative 'lib/config.rb'
 # Main test class for setting up config and creating drivers
 class GoogleTest < Minitest::Test
   def setup
-    @browser = driver
+    @browser = Config.App.new(Config::Driver.new(:firefox), 'google.com', 'https')
   end
 
   def teardown
     !@browser.nil? ? @browser.quit : false
-  end
-
-  # select_drivers with no arguments will select all 
-  # drivers available for the host OS
-  def select_drivers
-    opts = Selenium::WebDriver::Firefox::Options.new
-    opts.headless!
-    @browser = Selenium::WebDriver.for :firefox
   end
 end
