@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/mccarrmb/os
+  revision: 9579433060980d49df64202d8aa8847cc81b3a09
+  specs:
+    os (1.0.0)
+
+GIT
   remote: https://github.com/watir/watir
   revision: c7b7b0bd411108afe5395b4cf6b4e90c73d843a8
   specs:
@@ -65,6 +71,7 @@ PLATFORMS
 DEPENDENCIES
   json
   minitest
+  os!
   page-object
   pry
   rake
@@ -74,4 +81,4 @@ DEPENDENCIES
   watir!
 
 BUNDLED WITH
-   1.16.2
+   1.16.3

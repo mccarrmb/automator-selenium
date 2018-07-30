@@ -1,8 +1,8 @@
 require 'selenium-webdriver'
-require_relative 'os.rb'
+require 'os'
 
 module Config
-  # Custom exception for bad browser configs
+  # Custom exception for bad browser symbols
   class UnknownBrowserError < StandardError
     attr_reader :object
     def initialize(object)
@@ -11,6 +11,7 @@ module Config
   end
   # Class used for setting webdriver options
   class Driver
+    attr_reader :drivers
     def initialize
       # Stores all relative paths for the repo's drivers
       drivers = {
@@ -60,7 +61,8 @@ module Config
       Selenium::WebDriver::IE.driver_path       = drivers[:windows][:ie]
     end
   end
-
+  # Class for building a driver for the appropriate OS/browser version
+  # and binding it to the requested application
   class App
     @browsers = %i[chrome
                    firefox
@@ -69,11 +71,11 @@ module Config
                    internet_explorer
                    remote
                    html_unit]
-
     attr_reader :browser
     attr_reader :app_url
 
-    def initialize(url = 'google.com', protocol = 'https', browser = :firefox)
+    def initialize(url = 'google.com', protocol = 'https', 
+      browser = :firefox, os = :macos)
       @app_url = protocol + '://' + url
       if @browsers.include?(browser)
         @browser = browser

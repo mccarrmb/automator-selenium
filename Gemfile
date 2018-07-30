@@ -6,6 +6,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'json'
 gem 'minitest'
+gem 'os', github: 'mccarrmb/os'
 gem 'page-object'
 gem 'pry', group: :development
 gem 'rake'
