@@ -24,7 +24,10 @@ module Config
         end
       end
 
-      def initialize(browser)
+      def initialize(web_app, browser)
+        if !web_app.is_a?(Config::App.class)
+          raise BadAppConfigError(web_app, 'Invalid web application configuration')
+        end
         # Make sure all of these files are executable
         LOCAL_DRIVERS.each do |_os, apps|
           apps.each do |_app, path|
@@ -56,7 +59,7 @@ module Config
           end
         else
           raise UnknownBrowserError
-            .new('Browser specified is not supported')
+            .new(browser, 'Browser specified is not supported')
         end
       end
     end
