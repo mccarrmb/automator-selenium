@@ -20,8 +20,7 @@ end
 desc 'Executes internet searches using the Google.com GUI'
 Rake::TestTask.new(:test) do |t|
   t.warning = false
-  t.test_files = FileList['test/**/*_test.rb'] 
+  t.test_files = FileList['test/**/*_test.rb']
 end 
 
 task default: ['test']
-

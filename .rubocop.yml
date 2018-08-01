@@ -1,11 +1,11 @@
 AllCops:
-  Includes:
+  Include:
     - Rakefile
     - google-automator.rb
     - tests/**
     - pages/**
     - lib/**
-  Excludes:
+  Exclude:
     - bin/**
     - log/**
 Documentation:
