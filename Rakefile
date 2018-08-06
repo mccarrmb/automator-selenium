@@ -20,7 +20,27 @@ end
 desc 'Executes internet searches using the Google.com GUI'
 Rake::TestTask.new(:test) do |t|
   t.warning = false
+  t.test_files = FileList['test/*_test.rb']
+end
+
+desc 'Executes tests against all macOS browsers'
+Rake::TestTask.new(:macos) do |t|
+  t.warning = false
+  t.libs << 'macos'
   t.test_files = FileList['test/**/*_test.rb']
 end
 
+desc 'Executes tests against all Linux browsers'
+Rake::TestTask.new(:macos) do |t|
+  t.warning = false
+  t.libs << 'linux'
+  t.test_files = FileList['test/**/*_test.rb']
+end
+
+desc 'Executes tests against all Windows browsers'
+Rake::TestTask.new(:macos) do |t|
+  t.warning = false
+  t.libs << 'windows'
+  t.test_files = FileList['test/**/*_test.rb']
+end
 task default: ['test']
