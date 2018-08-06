@@ -52,6 +52,6 @@ desc 'Executes tests against all Linux browsers in parallel'
 multitask linux: %w[chrome firefox]
 
 desc 'Executes tests against all Windows browsers in parallel'
-multitask macos: %w[chrome firefox edge]
+multitask windows: %w[chrome firefox edge]
 
 task default: ['test']
