@@ -4,7 +4,7 @@ require 'page-object/page_factory'
 require 'minitest/autorun'
 require 'minitest/unit'
 require 'minitest/pride'
-require 'minitest/hell'
+# require 'minitest/hell' safaridriver enforces only one instance and driver combination
 require 'selenium_environment.rb'
 require 'web_application.rb'
 require 'local_driver.rb'
