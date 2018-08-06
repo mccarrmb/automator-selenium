@@ -17,9 +17,10 @@ RuboCop::RakeTask.new do |t|
   t.fail_on_error = false
 end
 
-desc 'Executes internet searches using the Google.com GUI'
+desc 'Executes internet searches using the Google.com GUI in Firefox'
 Rake::TestTask.new(:test) do |t|
   t.warning = false
+  t.libs = %w[lib test/firefox]
   t.test_files = FileList['test/**/*_test.rb']
 end
 
@@ -45,6 +46,12 @@ Rake::TestTask.new(:safari) do |t|
 end
 
 desc 'Executes tests against all macOS browsers in parallel'
-multitask macos: %w[macos_chrome macos_firefox macos_safari]
+multitask macos: %w[chrome firefox safari]
+
+desc 'Executes tests against all Linux browsers in parallel'
+multitask linux: %w[chrome firefox]
+
+desc 'Executes tests against all Windows browsers in parallel'
+multitask macos: %w[chrome firefox edge]
 
 task default: ['test']
