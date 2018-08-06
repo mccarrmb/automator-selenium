@@ -14,7 +14,7 @@ class SearchPage < BasePage
   def google_search(terms)
     self.search_field = terms
     self.search
-    if (terms.empty?)
+    if terms.empty?
       SearchPage.new(@browser)
     else
       SearchResultsPage.new(@browser)

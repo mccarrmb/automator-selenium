@@ -1,6 +1,6 @@
 module Config
   module Drivers
-    #Class for configuring remote execution
+    # Class for configuring remote execution
     class Remote
     end
   end

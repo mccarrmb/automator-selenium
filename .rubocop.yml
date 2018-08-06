@@ -10,3 +10,12 @@ AllCops:
     - log/**
 Documentation:
   Enabled: false
+# Selenium page objects have late bindings that get erroneously detected.
+Lint/UselessAssignment:
+  Enabled: false
+# Drivers don't behave if 'self' isn't explicitly specified.
+Style/RedundantSelf:
+  Enabled: false
+# This isn't 1988. Nobody has 80 column displays anymore.
+Metrics/LineLength:
+  Enabled: false

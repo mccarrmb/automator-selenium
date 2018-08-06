@@ -9,7 +9,6 @@ require_relative 'lib/config.rb'
 
 # Main test class for setting up config and creating drivers
 class GoogleTest < Minitest::Test
-
   def setup
     app = Config::App.new('google.com', 'https', false)
     config = Config::Drivers::Local.new(app, :firefox)

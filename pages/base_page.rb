@@ -7,11 +7,7 @@ require_relative '../lib/Config.rb'
 class BasePage
   include PageObject
 
-  def setup
-    # TODO: add setup code
-  end
+  def setup; end
 
-  def teardown
-    # TODO: add teardown code
-  end
+  def teardown; end
 end

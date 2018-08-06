@@ -8,6 +8,7 @@ module Config
       @mobile = mobile
     end
 
+    # Run the web app in mobile proportions?
     def mobile?
       @mobile
     end
