@@ -13,12 +13,9 @@ class SearchResultsPage
     SearchResultsPage.new(@browser)
   end
 
-  def get_search_results
-  end
+  def search_results; end
 
-  def get_page_numbers
-  end
+  def page_numbers; end
 
-  def choose_page_number(page_number)
-  end
+  def choose_page_number(page_number); end
 end

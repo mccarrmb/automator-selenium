@@ -3,29 +3,19 @@ require 'page-object'
 require 'page-object/page_factory'
 require 'minitest/autorun'
 require 'minitest/unit'
-require_relative './lib/os.rb'
+require 'minitest/pride'
+require 'minitest/hell'
+require_relative 'lib/selenium_environment.rb'
+require_relative 'lib/web_application.rb'
+require_relative 'lib/local_driver.rb'
 
+# Main test class for setting up config and creating drivers
 class GoogleTest < Minitest::Test
-  log_directory = File.join(File.dirname(__FILE__), 'log')
-  Dir.mkdir(log_directory) unless File.exist?(log_directory)
-  Selenium::WebDriver.logger.level = :debug
-  Selenium::WebDriver.logger.output = File.join(\
-    File.dirname(__FILE__), \
-    'log', \
-    'selenium.log'
-  )
-
+  include SeleniumEnvironment
   def setup
-    Selenium::WebDriver::Firefox.driver_path = File.join \
-      File.dirname(__FILE__), \
-      'bin', \
-      'firefox', \
-      OS.macos? ? 'geckodriver-v0.20.1-macos' : 'geckodriver-v0.20.1-linux64', \
-      'geckodriver'
-    opts = Selenium::WebDriver::Firefox::Options.new
-    opts.headless!
-    @browser = Selenium::WebDriver.for :firefox
-    @browser
+    @google = WebApplication.new('google.com', 'https', false, false)
+    firefox_driver = LocalDriver.new(@google, :firefox)
+    @browser = firefox_driver.start
   end
 
   def teardown
