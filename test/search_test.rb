@@ -5,7 +5,7 @@ require_relative '../pages/search_results_page.rb'
 class SearchTest < GoogleTest
   def setup
     super
-    @browser.navigate.to('https://www.google.com')
+    @browser.navigate.to(@google.app_url)
   end
 
   def teardown

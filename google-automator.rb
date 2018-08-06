@@ -5,14 +5,17 @@ require 'minitest/autorun'
 require 'minitest/unit'
 require 'minitest/pride'
 require 'minitest/hell'
-require_relative 'lib/config.rb'
+require_relative 'lib/selenium_environment.rb'
+require_relative 'lib/web_application.rb'
+require_relative 'lib/local_driver.rb'
 
 # Main test class for setting up config and creating drivers
 class GoogleTest < Minitest::Test
+  include SeleniumEnvironment
   def setup
-    app = Config::App.new('google.com', 'https', false)
-    config = Config::Drivers::Local.new(app, :firefox)
-    @browser = config.start
+    @google = WebApplication.new('google.com', 'https', false, false)
+    firefox_driver = LocalDriver.new(@google, :firefox)
+    @browser = firefox_driver.start
   end
 
   def teardown

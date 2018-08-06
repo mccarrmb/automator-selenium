@@ -1,13 +1,11 @@
 require 'selenium-webdriver'
 require 'os'
 require 'pry'
-require_relative 'local.rb'
-require_relative 'remote.rb'
-require_relative 'app.rb'
 
-module Config
+# Helper module for working with the local, relative selenium resources
+module SeleniumEnvironment
   # Stores all relative paths for the repo's drivers by OS
-  LOCAL_DRIVERS = {
+  WEB_DRIVERS = {
     linux: {
       chrome: File.join(__dir__, '..', 'bin', 'chrome', 'chromedriver_linux64', 'chromedriver'),
       firefox: File.join(__dir__, '..', 'bin', 'firefox', 'geckodriver-v0.20.1-linux64', 'geckodriver')
@@ -25,6 +23,38 @@ module Config
     }
   }.freeze
 
+  # Custom exception for passing invalid config arguments
+  class BadAppConfigError < StandardError
+    attr_reader :message
+    def initialize(message = nil)
+      @message = message
+    end
+  end
+
+  # Custom exception for bad browser symbols
+  class UnknownBrowserError < StandardError
+    attr_reader :message
+    def initialize(message = nil)
+      @message = message
+    end
+  end
+
+  # Custom exception for bad/unsupported OS symbols
+  class UnsupportedOSError < StandardError
+    attr_reader :message
+    def initialize(message = nil)
+      @message = message
+    end
+  end
+
+  # Custom exception for bad os/browser combinations
+  class InvalidBrowserOSCombinationError < StandardError
+    attr_reader :message
+    def initialize(message = nil)
+      @message = message
+    end
+  end
+
   # Utilize OS gem to better detect host OS (required for running native drivers)
   def self.actual_os
     if OS::Underlying.windows?
@@ -34,19 +64,18 @@ module Config
     elsif OS::Underlying.linux?
       :linux
     else
-      raise UnsupportedOSError
-        .new(OS.host_os, 'Your operating system is not supported')
+      raise UnsupportedOSError, 'Your operating system is not supported'
     end
   end
 
   # Verifies if the browser and platform comination is valid
-  def self.browser_valid?
-    !LOCAL_DRIVERS[self.class.actual_os][@browser].nil?
+  def self.browser_host_valid?(browser)
+    !WEB_DRIVERS[self.actual_os][browser].nil?
   end
 
   # Make sure all of these files are executable
   def self.prep_binaries
-    LOCAL_DRIVERS.each do |_os, apps|
+    WEB_DRIVERS.each do |_os, apps|
       apps.each do |_app, path|
         File.chmod(0o755, path) unless File.executable?(path)
       end
@@ -56,13 +85,13 @@ module Config
   # Set driver binary paths to local copies
   def self.prep_paths
     os = actual_os
-    WebDriver::Firefox.driver_path = LOCAL_DRIVERS[os][:firefox]
-    WebDriver::Chrome.driver_path = LOCAL_DRIVERS[os][:chrome]
+    Selenium::WebDriver::Firefox.driver_path = WEB_DRIVERS[os][:firefox]
+    Selenium::WebDriver::Chrome.driver_path = WEB_DRIVERS[os][:chrome]
     if os == :macos
-      WebDriver::Safari.driver_path = LOCAL_DRIVERS[:macos][:safari]
+      Selenium::WebDriver::Safari.driver_path = WEB_DRIVERS[os][:safari]
     elsif os == :windows
-      WebDriver::Edge.driver_path = LOCAL_DRIVERS[:windows][:edge]
-      WebDriver::IE.driver_path = LOCAL_DRIVERS[:windows][:ie]
+      Selenium::WebDriver::Edge.driver_path = WEB_DRIVERS[os][:edge]
+      Selenium::WebDriver::IE.driver_path = WEB_DRIVERS[os][:ie]
     end
   end
 end
