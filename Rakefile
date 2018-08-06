@@ -20,27 +20,31 @@ end
 desc 'Executes internet searches using the Google.com GUI'
 Rake::TestTask.new(:test) do |t|
   t.warning = false
-  t.test_files = FileList['test/*_test.rb']
-end
-
-desc 'Executes tests against all macOS browsers'
-Rake::TestTask.new(:macos) do |t|
-  t.warning = false
-  t.libs << 'macos'
   t.test_files = FileList['test/**/*_test.rb']
 end
 
-desc 'Executes tests against all Linux browsers'
-Rake::TestTask.new(:macos) do |t|
+desc 'Executes tests against Chrome'
+Rake::TestTask.new(:chrome) do |t|
   t.warning = false
-  t.libs << 'linux'
+  t.libs = %w[lib test/chrome]
   t.test_files = FileList['test/**/*_test.rb']
 end
 
-desc 'Executes tests against all Windows browsers'
-Rake::TestTask.new(:macos) do |t|
+desc 'Executes tests against Firefox'
+Rake::TestTask.new(:firefox) do |t|
   t.warning = false
-  t.libs << 'windows'
+  t.libs = %w[lib test/firefox]
   t.test_files = FileList['test/**/*_test.rb']
 end
+
+desc 'Executes tests against Safari'
+Rake::TestTask.new(:safari) do |t|
+  t.warning = false
+  t.libs = %w[lib test/safari]
+  t.test_files = FileList['test/**/*_test.rb']
+end
+
+desc 'Executes tests against all macOS browsers in parallel'
+multitask macos: %w[macos_chrome macos_firefox macos_safari]
+
 task default: ['test']

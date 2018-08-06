@@ -1,4 +1,4 @@
-require_relative '../google-automator.rb'
+require 'google-automator.rb'
 require_relative '../pages/search_page.rb'
 require_relative '../pages/search_results_page.rb'
 
