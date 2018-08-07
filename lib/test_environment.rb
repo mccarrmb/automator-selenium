@@ -82,7 +82,9 @@ module TestEnvironment
   def self.prep_binaries
     WEB_DRIVERS.each do |_os, apps|
       apps.each do |_app, path|
-        File.chmod(0o755, path) unless File.executable?(path)
+        if _app != :safari
+          File.chmod(0o755, path) unless File.executable?(path)
+        end
       end
     end
   end
