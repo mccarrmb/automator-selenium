@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mccarrmb/os
-  revision: 9579433060980d49df64202d8aa8847cc81b3a09
+  revision: e379f02226fc05cf89632913729ad9952082e968
   specs:
     os (1.0.0)
 
