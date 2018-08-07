@@ -3,7 +3,7 @@ require 'os'
 require 'pry'
 
 # Helper module for working with the local, relative selenium resources
-module SeleniumEnvironment
+module TestEnvironment
   # Stores all relative paths for the repo's drivers by OS
   WEB_DRIVERS = {
     linux: {
@@ -22,6 +22,11 @@ module SeleniumEnvironment
       ie: File.join(__dir__, '..', 'bin', 'internet_explorer', 'IEDriverServer_Win32_3.9.0', 'IEDriverServer.exe')
     }
   }.freeze
+
+  IMPLICIT_WAIT = 10
+
+  LOG_DIR = File.join(__dir__, '..', 'log')
+  Dir.mkdir(LOG_DIR) unless File.exist?(LOG_DIR)
 
   # Custom exception for passing invalid config arguments
   class BadAppConfigError < StandardError
@@ -94,4 +99,7 @@ module SeleniumEnvironment
       Selenium::WebDriver::IE.driver_path = WEB_DRIVERS[os][:ie]
     end
   end
+
+  self.prep_binaries
+  self.prep_paths
 end

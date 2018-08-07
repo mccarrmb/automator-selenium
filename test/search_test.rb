@@ -1,8 +1,8 @@
-require 'google-automator.rb'
+require 'test_base.rb'
 require_relative '../pages/search_page.rb'
 require_relative '../pages/search_results_page.rb'
 
-class SearchTest < GoogleTest
+class SearchTest < TestBase
   def setup
     super
     @browser.navigate.to(@google.app_url)
