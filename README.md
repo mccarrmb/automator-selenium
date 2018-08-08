@@ -15,17 +15,12 @@ Google-Automator is an attempt to address the lack of decent Ruby-based Selenium
   * Linux (kernel >= 3.13)
   * Windows 10 >= 1706 (requires Ubuntu subsystem)
 * __Browsers__
-  * __Linux__
-    * Chrome
-    * Firefox
-  * __macOS__
-    * Chrome
-    * Firefox
-    * Safari
-  * __Windows__
-    * Chrome
-    * Edge
-    * Firefox
+|       | Linux | macOS | Windows |
+|:-----:|:-----:|:-----:|:-------:|
+|Chrome |      X|      X|        X|
+|Firefox|      X|      X|        X|
+|Safari |       |      X|         |
+|Edge   |       |       |        X|
 
 ## Installation
 
