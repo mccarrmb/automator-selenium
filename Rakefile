@@ -19,7 +19,7 @@ RuboCop::RakeTask.new do |t|
   t.fail_on_error = false
 end
 
-# Parallel tests
+# Parallel local tests
 desc 'Executes tests against all macOS browsers in parallel (except Safari)'
 multitask macos_parallel: %w[chrome_parallel firefox_parallel safari]
 
@@ -29,15 +29,16 @@ multitask linux_parallel: %w[chrome_parallel firefox_parallel]
 desc 'Executes tests against all Windows browsers in parallel'
 multitask windows_parallel: %w[chrome_parallel firefox_parallel edge_parallel]
 
-# Non-parallel tests (all browsers are run concurrently, however.)
+# Non-parallel local tests (all browsers are run concurrently, however)
 desc 'Executes tests against all macOS browsers'
-multitask macos_parallel: %w[chrome firefox safari]
+multitask macos: %w[chrome firefox safari]
 
 desc 'Executes tests against all Linux browsers in parallel'
-multitask linux_parallel: %w[chrome firefox]
+multitask linux: %w[chrome firefox]
 
 desc 'Executes tests against all Windows browsers in parallel'
-multitask windows_parallel: %w[chrome firefox edge]
+multitask windows: %w[chrome firefox edge]
 
-# Default task is set to firefox as it is the easiest driver to set up
+# The default task is set to local instance of firefox 
+# as it is the easiest driver to set up.
 task default: ['firefox']
