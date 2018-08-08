@@ -1,7 +1,7 @@
 require 'selenium-webdriver'
 require 'page-object'
-require_relative 'base_page.rb'
-require_relative 'search_results_page.rb'
+require 'base_page.rb'
+require 'search_results_page.rb'
 
 # Page object for the Google landing page
 class SearchPage < BasePage

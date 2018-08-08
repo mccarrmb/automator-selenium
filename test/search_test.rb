@@ -1,6 +1,6 @@
 require 'test_base.rb'
-require_relative '../pages/search_page.rb'
-require_relative '../pages/search_results_page.rb'
+require 'search_page.rb'
+require 'search_results_page.rb'
 
 class SearchTest < TestBase
   def setup

@@ -7,6 +7,7 @@ require 'minitest/pride'
 require 'test_environment.rb'
 require 'web_application.rb'
 require 'local_driver.rb'
+require 'remote_driver.rb'
 require 'client.rb'
 
 # Main test class for setting up config and creating drivers
