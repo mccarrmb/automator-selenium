@@ -1,6 +1,8 @@
 require 'rake/testtask'
 require 'rubocop/rake_task'
 
+Rake.add_rakelib 'tasks'
+
 desc 'Start a console session with Selenium loaded'
 task :console do
   require 'irb'
@@ -17,41 +19,25 @@ RuboCop::RakeTask.new do |t|
   t.fail_on_error = false
 end
 
-desc 'Executes internet searches using the Google.com GUI in Firefox'
-Rake::TestTask.new(:test) do |t|
-  t.warning = false
-  t.libs = %w[lib test test/firefox]
-  t.test_files = FileList['test/**/*_test.rb']
-end
-
-desc 'Executes tests against Chrome'
-Rake::TestTask.new(:chrome) do |t|
-  t.warning = false
-  t.libs = %w[lib test test/chrome]
-  t.test_files = FileList['test/**/*_test.rb']
-end
-
-desc 'Executes tests against Firefox'
-Rake::TestTask.new(:firefox) do |t|
-  t.warning = false
-  t.libs = %w[lib test test/firefox]
-  t.test_files = FileList['test/**/*_test.rb']
-end
-
-desc 'Executes tests against Safari'
-Rake::TestTask.new(:safari) do |t|
-  t.warning = false
-  t.libs = %w[lib test test/safari]
-  t.test_files = FileList['test/**/*_test.rb']
-end
-
-desc 'Executes tests against all macOS browsers in parallel'
-multitask macos: %w[chrome firefox safari]
+# Parallel tests
+desc 'Executes tests against all macOS browsers in parallel (except Safari)'
+multitask macos_parallel: %w[chrome_parallel firefox_parallel safari]
 
 desc 'Executes tests against all Linux browsers in parallel'
-multitask linux: %w[chrome firefox]
+multitask linux_parallel: %w[chrome_parallel firefox_parallel]
 
 desc 'Executes tests against all Windows browsers in parallel'
-multitask windows: %w[chrome firefox edge]
+multitask windows_parallel: %w[chrome_parallel firefox_parallel edge_parallel]
 
-task default: ['test']
+# Non-parallel tests (all browsers are run concurrently, however.)
+desc 'Executes tests against all macOS browsers'
+multitask macos_parallel: %w[chrome firefox safari]
+
+desc 'Executes tests against all Linux browsers in parallel'
+multitask linux_parallel: %w[chrome firefox]
+
+desc 'Executes tests against all Windows browsers in parallel'
+multitask windows_parallel: %w[chrome firefox edge]
+
+# Default task is set to firefox as it is the easiest driver to set up
+task default: ['firefox']
