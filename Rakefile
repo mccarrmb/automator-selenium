@@ -1,7 +1,7 @@
 require 'rake/testtask'
 require 'rubocop/rake_task'
 
-Rake.add_rakelib 'tasks'
+Dir['tasks/**/*.rake'].each { |rake| load rake }
 
 desc 'Start a console session with Selenium loaded'
 task :console do

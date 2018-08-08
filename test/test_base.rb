@@ -13,7 +13,11 @@ require 'client.rb'
 class TestBase < Minitest::Test
   def setup
     @google = WebApplication.new('google.com', 'https', false, false)
-    @driver = LocalDriver.new(@google, Client::TYPE)
+    if Client::TYPE == :remote
+      # @driver = RemoteDriver(@google, CLIENT::TYPE)
+    else
+      @driver = LocalDriver.new(@google, Client::TYPE)
+    end
     @browser = @driver.instance
   end
 
