@@ -22,13 +22,14 @@ class LocalDriver
     @instance.manage.timeouts.implicit_wait = TestEnvironment::IMPLICIT_WAIT
   end
 
-  def capture_window(test_name = '')
-    @instance.save_screenshot(
-      File.join(TestEnvironment::LOG_DIR, "#{test_name}_#{@browser}_#{log_time}.png")
+  def capture_state(test_name = '')
+    file_name = File.join(TestEnvironment::LOG_DIR, "#{test_name}_#{@browser}_#{log_time}")
+    @instance.save_screenshot("#{file_name}.png")
+    dom_file = File.new("#{file_name}.dom", 'w+')
+    dom_file.puts(
+      @instance.execute_script('return document.documentElement.outerHTML')
     )
   end
-
-  def capture_dom; end
 
   def log_time
     Time.now.strftime('_%Y-%m-%dT%H:%M:%S.%L')
