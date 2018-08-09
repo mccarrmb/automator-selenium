@@ -13,8 +13,6 @@ rvm:
 before_script: 
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      sudo apt-get -y update
-      sudo apt-get -y upgrade
       sudo apt-get install firefox
     fi
   - |
