@@ -12,21 +12,16 @@ class SearchTest < TestBase
     super
   end
 
-  def test_absolutely_nothing
-    search = SearchPage.new(@browser)
-    search.google_search('')
-    assert(true, 'Black is white.')
-  end
-
-  def test_search_blank_term
-    search = SearchPage.new(@browser)
-    search_result = search.google_search('')
-    assert(!search_result.is_a?(SearchResultsPage), 'Browser not displaying home page on blank term.')
-  end
-
-  def test_search_non_blank_term
-    search = SearchPage.new(@browser)
-    search_result = search.google_search('sample search')
-    assert(search_result.is_a?(SearchResultsPage), 'Browser not displaying results page on non-blank term.')
+  def test_searching_terms_from_data_file
+    current_line = 0
+    CSV.foreach(@test_data << 'valid_search_terms.csv') do |row|
+      if current_line > 0
+        @browser.navigate.to(@google.app_url)
+        search = SearchPage.new(@browser)
+        search_result = search.google_search(row[0])
+        assert(search_result.is_a?(SearchResultsPage), 'Browser not displaying results page.')
+      end
+      current_line += 1
+    end
   end
 end

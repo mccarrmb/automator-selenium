@@ -15,3 +15,5 @@ gem 'selenium-webdriver'
 gem 'test-unit'
 gem 'watir', github: 'watir/watir'
 
+
+gem "csv", "~> 3.0"

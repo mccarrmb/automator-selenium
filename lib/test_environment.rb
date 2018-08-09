@@ -24,7 +24,7 @@ module TestEnvironment
   }.freeze
 
   IMPLICIT_WAIT = 10
-
+  DATA_DIR = File.join(__dir__, '..', 'data')
   LOG_DIR = File.join(__dir__, '..', 'log')
   Dir.mkdir(LOG_DIR) unless File.exist?(LOG_DIR)
 
