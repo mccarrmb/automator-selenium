@@ -13,7 +13,7 @@ require 'client.rb'
 # Main test class for setting up config and creating drivers
 class TestBase < Minitest::Test
   def setup
-    @google = WebApplication.new('google.com', 'https', false, false)
+    @google = WebApplication.new('google.com', 'https', false)
     if Client::TYPE == :remote
       # @driver = RemoteDriver(@google, CLIENT::TYPE)
     else
