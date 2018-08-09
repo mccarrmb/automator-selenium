@@ -11,13 +11,20 @@ rvm:
   - 2.5.0
   - ruby-head
 before_script: 
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install firefox; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod +x bin/firefox/geckodriver-v0.20.1-linux64/geckodriver; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then curl -sSL https://rvm.io/mpapis.asc | gpg --import - ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gpg --import rvm.gpg && rvm get head; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew cask install firefox; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod +x bin/firefox/geckodriver-v0.20.1-macos/geckodriver; fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      sudo apt-get -y update
+      sudo apt-get -y upgrade
+      sudo apt-get install firefox
+    fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
+      curl -sSL https://rvm.io/mpapis.asc | gpg --import - 
+      gpg --import rvm.gpg && rvm get head
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      brew cask install firefox
+      chmod +x bin/firefox/geckodriver-v0.20.1-macos/geckodriver
+    fi
   - gem install bundler
   - bundler install
 script: 
