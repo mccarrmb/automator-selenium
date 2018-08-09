@@ -19,6 +19,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    csv (3.0.0)
     data_magic (1.2)
       faker (>= 1.1.2)
       yml_reader (>= 0.6)
@@ -69,6 +70,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  csv (~> 3.0)
   json
   minitest
   os!

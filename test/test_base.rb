@@ -1,3 +1,4 @@
+require 'csv'
 require 'selenium-webdriver'
 require 'page-object'
 require 'page-object/page_factory'
@@ -20,6 +21,7 @@ class TestBase < Minitest::Test
       @driver = LocalDriver.new(@google, Client::TYPE)
     end
     @browser = @driver.instance
+    @test_data = TestEnvironment::DATA_DIR << '/'
   end
 
   def teardown
