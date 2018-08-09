@@ -5,7 +5,6 @@ class WebApplication
   def initialize(url = 'google.com', protocol = 'https', mobile = false)
     @app_url = protocol + '://' + url
     @mobile = mobile
-    @remote = remote
   end
 
   # Run the web app in mobile proportions?
