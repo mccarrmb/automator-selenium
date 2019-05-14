@@ -1,7 +1,17 @@
 # frozen_string_literal: true
 
-require 'minitest/hell'
-
 class Client
-  TYPE = :chrome
+  PROPERTIES = {
+    app: 'app.com',
+    protocol: 'https'
+  }.freeze
+
+  CAPABILITIES = {
+    url: "#{PROPERTIES[:protocol]}//#{PROPERTIES[:app]}",
+    browser: :chrome,
+    platformName: 'any',
+    platformVersion: 'any',
+    remote: false,
+    parallel: true
+  }.freeze
 end

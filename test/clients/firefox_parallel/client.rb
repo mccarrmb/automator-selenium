@@ -1,5 +1,17 @@
-require 'minitest/hell'
+# frozen_string_literal: true
 
 class Client
-  TYPE = :firefox
+  PROPERTIES = {
+    app: 'app.com',
+    protocol: 'https'
+  }.freeze
+
+  CAPABILITIES = {
+    url: "#{PROPERTIES[:protocol]}//#{PROPERTIES[:app]}",
+    browser: :firefox,
+    platformName: 'any',
+    platformVersion: 'any',
+    remote: false,
+    parallel: true
+  }.freeze
 end

@@ -15,10 +15,11 @@ require 'client.rb'
 # Main test class for setting up config and creating drivers
 class TestBase < Minitest::Test
   def setup
+    require 'minitest/hell' if Client::CAPABILITIES[:parallel]
     @driver = if Client::PROPERTIES[:remote]
-                RemoteDriver.new(CLIENT::PROPERTIES[:browser])
+                RemoteDriver.new(Client::CAPABILITIES[:browser])
               else
-                LocalDriver.new(Client::PROPERTIES[:browser])
+                LocalDriver.new(Client::CAPABILITIES[:browser])
               end
     @browser = @driver.instance
     @test_data = TestEnvironment::DATA_DIR << '/'

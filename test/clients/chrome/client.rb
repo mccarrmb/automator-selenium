@@ -11,6 +11,7 @@ class Client
     browser: :chrome,
     platformName: 'any',
     platformVersion: 'any',
-    remote: false
+    remote: false,
+    parallel: false
   }.freeze
 end
