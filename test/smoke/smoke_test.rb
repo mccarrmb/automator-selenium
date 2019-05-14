@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_base.rb'
 require 'search_page.rb'
 require 'search_results_page.rb'
@@ -5,7 +7,7 @@ require 'search_results_page.rb'
 class SearchTest < TestBase
   def setup
     super
-    @browser.navigate.to(@google.app_url)
+    @browser.navigate.to(Client::CAPABILITIES[:url])
   end
 
   def teardown

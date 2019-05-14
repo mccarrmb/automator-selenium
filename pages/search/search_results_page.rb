@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'selenium-webdriver'
 require 'page-object'
+require 'page_base.rb'
 
-class SearchResultsPage
+class SearchResultsPage < BasePage
   include PageObject
 
   text_field(:search_field, name: 'q')

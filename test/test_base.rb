@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'selenium-webdriver'
 require 'page-object'
@@ -6,7 +8,6 @@ require 'minitest/autorun'
 require 'minitest/unit'
 require 'minitest/pride'
 require 'test_environment.rb'
-require 'web_application.rb'
 require 'local_driver.rb'
 require 'remote_driver.rb'
 require 'client.rb'
@@ -14,12 +15,11 @@ require 'client.rb'
 # Main test class for setting up config and creating drivers
 class TestBase < Minitest::Test
   def setup
-    @google = WebApplication.new('google.com', 'https', false)
-    if Client::TYPE == :remote
-      # @driver = RemoteDriver(@google, CLIENT::TYPE)
-    else
-      @driver = LocalDriver.new(@google, Client::TYPE)
-    end
+    @driver = if Client::PROPERTIES[:remote]
+                RemoteDriver.new(CLIENT::PROPERTIES[:browser])
+              else
+                LocalDriver.new(Client::PROPERTIES[:browser])
+              end
     @browser = @driver.instance
     @test_data = TestEnvironment::DATA_DIR << '/'
   end

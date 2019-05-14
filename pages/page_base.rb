@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'selenium-webdriver'
 require 'page-object'
 require 'test_environment.rb'

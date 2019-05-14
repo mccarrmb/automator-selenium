@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'selenium-webdriver'
 require 'page-object'
-require 'base_page.rb'
+require 'page_base.rb'
 require 'search_results_page.rb'
 
 # Page object for the Google landing page

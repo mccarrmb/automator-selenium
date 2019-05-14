@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 require 'date'
 require 'test_environment.rb'
-require 'web_application.rb'
 
 # Class for setting up local execution
 class LocalDriver
@@ -9,15 +10,17 @@ class LocalDriver
   attr_reader :log_directory
   attr_accessor :instance
 
-  def initialize(web_app, browser)
+  def initialize(browser)
     raise BadAppConfigError, 'Invalid web application configuration' \
-      unless web_app.is_a?(WebApplication) && browser.is_a?(Symbol)
+      unless browser.is_a?(Symbol)
+
     # Set up Selenium log behavior
     WebDriver.logger.level = :debug
     WebDriver.logger.output = File.join(TestEnvironment::LOG_DIR, 'selenium.log')
     @browser = browser
     raise UnknownBrowserError, 'Browser specified is not supported' \
       unless TestEnvironment.browser_host_valid?(@browser)
+
     @instance = WebDriver.for @browser
     @instance.manage.timeouts.implicit_wait = TestEnvironment::IMPLICIT_WAIT
   end
