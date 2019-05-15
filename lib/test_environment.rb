@@ -94,13 +94,13 @@ module TestEnvironment
   # Set driver binary paths to local copies
   def self.prep_paths
     os = actual_os
-    Selenium::WebDriver::Firefox.driver_path = WEB_DRIVERS[os][:firefox]
-    Selenium::WebDriver::Chrome.driver_path = WEB_DRIVERS[os][:chrome]
+    Selenium::WebDriver::Firefox::Service.driver_path = WEB_DRIVERS[os][:firefox]
+    Selenium::WebDriver::Chrome::Service.driver_path = WEB_DRIVERS[os][:chrome]
     if os == :macos
-      Selenium::WebDriver::Safari.driver_path = WEB_DRIVERS[os][:safari]
+      Selenium::WebDriver::Safari::Service.driver_path = WEB_DRIVERS[os][:safari]
     elsif os == :windows
-      Selenium::WebDriver::Edge.driver_path = WEB_DRIVERS[os][:edge]
-      Selenium::WebDriver::IE.driver_path = WEB_DRIVERS[os][:ie]
+      Selenium::WebDriver::Edge::Service.driver_path = WEB_DRIVERS[os][:edge]
+      Selenium::WebDriver::IE::Service.driver_path = WEB_DRIVERS[os][:ie]
     end
   end
 
