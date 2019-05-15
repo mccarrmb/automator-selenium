@@ -6,7 +6,7 @@ require 'test_environment.rb'
 
 # Default page class for all page objects
 # Handles global setups and teardowns
-class BasePage
+class PageObjectBase
   include PageObject
 
   def setup; end

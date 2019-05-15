@@ -7,6 +7,7 @@ desc 'Start a console session with Selenium loaded'
 task :console do
   require 'irb'
   require 'irb/completion'
+  require 'pry'
   require 'selenium-webdriver'
   require 'page-object'
   require 'page-object/page_factory'

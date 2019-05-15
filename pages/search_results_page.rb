@@ -2,9 +2,9 @@
 
 require 'selenium-webdriver'
 require 'page-object'
-require 'page_base.rb'
+require 'page_object_base.rb'
 
-class SearchResultsPage < BasePage
+class SearchResultsPage < PageObjectBase
   include PageObject
 
   text_field(:search_field, name: 'q')

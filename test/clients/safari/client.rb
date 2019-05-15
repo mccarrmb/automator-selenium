@@ -7,7 +7,7 @@ class Client
   }.freeze
 
   CAPABILITIES = {
-    url: "#{PROPERTIES[:protocol]}//#{PROPERTIES[:app]}",
+    url: "#{PROPERTIES[:protocol]}://#{PROPERTIES[:app]}",
     browser: :safari,
     platformName: 'any',
     platformVersion: 'any',

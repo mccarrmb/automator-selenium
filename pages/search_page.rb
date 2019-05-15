@@ -2,11 +2,11 @@
 
 require 'selenium-webdriver'
 require 'page-object'
-require 'page_base.rb'
+require 'page_object_base.rb'
 require 'search_results_page.rb'
 
 # Page object for the Google landing page
-class SearchPage < BasePage
+class SearchPage < PageObjectBase
   include PageObject
 
   text_field(:search_field, name: 'q')
