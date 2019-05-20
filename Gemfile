@@ -10,7 +10,7 @@ gem 'os', github: 'mccarrmb/os'
 gem 'page-object'
 gem 'pry', group: :development
 gem 'rake'
-gem 'rubocop', '~> 0.58.2'
+gem 'rubocop', '~> 0.69.0'
 gem 'selenium-webdriver'
 gem 'test-unit'
 gem 'watir', github: 'watir/watir'
