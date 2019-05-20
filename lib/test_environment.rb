@@ -2,7 +2,6 @@
 
 require 'selenium-webdriver'
 require 'os'
-require 'pry'
 
 # Helper module for working with the local, relative selenium resources
 module TestEnvironment
@@ -25,7 +24,7 @@ module TestEnvironment
     }
   }.freeze
 
-  IMPLICIT_WAIT = 10
+  IMPLICIT_WAIT = 1
   DATA_DIR = File.join(__dir__, '..', 'data')
   LOG_DIR = File.join(__dir__, '..', 'log')
   Dir.mkdir(LOG_DIR) unless File.exist?(LOG_DIR)
