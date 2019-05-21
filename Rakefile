@@ -8,6 +8,8 @@ task :console do
   require 'irb'
   require 'irb/completion'
   require 'pry'
+  require 'minitest/autorun'
+  require 'minitest/unit'
   require 'selenium-webdriver'
   require 'page-object'
   require 'page-object/page_factory'
