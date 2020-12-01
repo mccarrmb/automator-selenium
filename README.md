@@ -1,10 +1,10 @@
-# automator-appium
+# automator-selenium
 
-Ruby-based Selenium project for cross-platform calculator, [React Native - NW React Calculator](https://github.com/benoitvallon/react-native-nw-react-calculator).
+Ruby-based Selenium project for Google
 
 ## Requirements
 
-* __Ruby__ >= 2.5.0
+* __Ruby__ >= 2.7.0
   * Bundler gem ~ 1.16
 * __Operating Systems__
   * macOS >= 10.10
@@ -18,5 +18,3 @@ Ruby-based Selenium project for cross-platform calculator, [React Native - NW Re
 |Firefox|      X|      X|        X|
 |Safari |       |      X|         |
 |Edge   |       |       |        X|
-
-Internet Explorer driver is included but not configured in the project.
