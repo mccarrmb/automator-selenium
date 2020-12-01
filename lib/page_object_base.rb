@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'selenium-webdriver'
+require 'environment_utilities'
 require 'page-object'
-require 'test_environment.rb'
+require 'selenium-webdriver'
 
 # Default page class for all page objects
-# Handles global setups and teardowns
+# Handles global setups and teardowns if those are needed
 class PageObjectBase
   include PageObject
 

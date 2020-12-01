@@ -1,5 +1,4 @@
 {
   "editor.tabSize": 2,
-  "ruby.rubocop.executePath": "/Users/matt.mccarragher/.rvm/gems/ruby-2.6.0/bin/",
-  "ruby.rubocop.configFilePath": "/Users/matt.mccarragher/.rubocop.yml"
+  "ruby.rubocop.executePath": "/Users/matt.mccarragher/.asdf/shims/",
 }

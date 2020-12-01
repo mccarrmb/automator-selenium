@@ -2,7 +2,7 @@
 
 require 'selenium-webdriver'
 require 'page-object'
-require 'page_object_base.rb'
+require 'page_object_base'
 
 class SearchResultsPage < PageObjectBase
   include PageObject
@@ -11,9 +11,14 @@ class SearchResultsPage < PageObjectBase
   button(:search, value: 'search')
 
   def google_search(terms)
-    search_field = terms
+    search_field.click
+    @browser.action.send_keys(terms).perform
     search
-    SearchResultsPage.new(@browser)
+    if terms.empty?
+      SearchPage.new(@browser)
+    else
+      SearchResultsPage.new(@browser)
+    end
   end
 
   def search_results; end

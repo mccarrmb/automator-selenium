@@ -2,8 +2,9 @@
 
 require 'selenium-webdriver'
 require 'page-object'
-require 'page_object_base.rb'
-require 'search_results_page.rb'
+require 'page_object_base'
+require 'pry'
+require 'search_results_page'
 
 # Page object for the Google landing page
 class SearchPage < PageObjectBase
@@ -14,8 +15,9 @@ class SearchPage < PageObjectBase
   button(:lucky, value: 'I\'m Feeling Lucky')
 
   def google_search(terms)
-    self.search_field = terms
-    self.search
+    search_field
+    @browser.action.send_keys(terms).perform
+    search
     if terms.empty?
       SearchPage.new(@browser)
     else

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'test_base.rb'
-require 'search_page.rb'
-require 'search_results_page.rb'
+require 'test_base'
+require 'search_page'
+require 'search_results_page'
 
 class SearchTest < TestBase
   def setup
     super
-    @browser.navigate.to(Client::CAPABILITIES[:url])
+    @browser.navigate.to(Client.url)
   end
 
   def teardown

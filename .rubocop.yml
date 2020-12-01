@@ -1,21 +1,45 @@
 AllCops:
-  Include:
-    - Rakefile
-    - google-automator.rb
-    - tests/**
-    - pages/**
-    - lib/**
-  Exclude:
-    - bin/**
-    - log/**
-Documentation:
+  TargetRubyVersion: 2.6
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/ModuleFunction:
   Enabled: false
-# Selenium page objects have late bindings that get erroneously detected.
-Lint/UselessAssignment:
+Style/MultilineBlockChain:
   Enabled: false
-# Drivers don't behave if 'self' isn't explicitly specified.
-Style/RedundantSelf:
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: ex
+
+# bad things to re-enable later
+Style/Documentation:
   Enabled: false
-# This isn't 1988. Nobody has 80 column displays anymore.
 Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
   Enabled: false
