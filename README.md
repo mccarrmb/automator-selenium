@@ -10,11 +10,3 @@ Ruby-based Selenium project for Google
   * macOS >= 10.10
   * Linux (kernel >= 3.13)
   * Windows 10 >= 1706 (requires Windows Subsystem for Linux)
-* __Installed Browsers:__
-
-|       | Linux | macOS | Windows |
-|:-----:|:-----:|:-----:|:-------:|
-|Chrome |      X|      X|        X|
-|Firefox|      X|      X|        X|
-|Safari |       |      X|         |
-|Edge   |       |       |        X|
